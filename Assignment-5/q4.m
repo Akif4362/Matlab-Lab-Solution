@@ -49,5 +49,30 @@ for r = 1:rows
     end
 end
 
-[~, idx] = min(cost(:));
-cost(:)
+disp("for north west method")
+disp(cell2table(combinedem_nw, "RowNames", ["p1" "p2" "p3"], "VariableNames", ["r1" "r2" "r3" "r4"]))
+
+total_nw = 0;
+for i = 1:length(X_nw(:))
+    [r, c] = ind2sub(size(X_nw), i);
+    if X_nw(r,c) ~= 0
+        fprintf("x(%d,%d) = %d\n", r, c, X_nw(r,c))
+        total_nw = total_nw + X_nw(r,c) * cost(r,c);
+    end
+end
+
+fprintf("total cost by north west method = %d", total_nw)
+
+disp("for least cost method")
+disp(cell2table(combinedem_lc, "RowNames", ["p1" "p2" "p3"], "VariableNames", ["r1" "r2" "r3" "r4"]))
+
+total_lc = 0;
+for i = 1:length(X_lc(:))
+    [r, c] = ind2sub(size(X_lc), i);
+    if X_lc(r,c) ~= 0
+        fprintf("x(%d,%d) = %d\n", r, c, X_lc(r,c))
+        total_lc = total_lc + X_lc(r,c) * cost(r,c);
+    end
+end
+
+fprintf("total cost by north west method = %d", total_lc)
