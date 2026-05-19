@@ -12,7 +12,7 @@ title("(a) log scale")
 % order 2
 x = log10(T);
 y = log10(k);
-p2 = curvefit2(x, y); % dont use polyfit use curve fitting algorithm. i will update this code later
+p2 = curvefit2(x, y);
 
 syms k_syms T_syms
 k_eqn = solve(log10(k_syms) == p2(1)*log10(T_syms)^2 + p2(2)*log10(T_syms) + p2(3),...
