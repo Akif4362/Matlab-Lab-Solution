@@ -17,3 +17,13 @@ fprintf("f(y) == %s \n", f)
 
 vp = vp + f;
 fprintf("velocity potential is %s", vp)
+
+vpf = matlabFunction(vp);
+
+[X, Y] = meshgrid(linspace(-2, 2, 75));
+
+contour(X, Y, vpf(X, Y), 25, 'b')
+title("equipotential lines")
+xlabel("u")
+ylabel("v")
+legend("equipotential lines")
